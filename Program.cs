@@ -30,8 +30,8 @@ namespace SharpMCL
 				string clientdir = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + ClientPath;
 				string client = "DPT";
 				string user = "USSRNAME";
-                string uuid = Guid.NewGuid().ToString().Replace("-", string.Empty);
-                string session = "0";
+				string uuid = Guid.NewGuid().ToString();
+				string session = "0";
 				start(clientdir, client, user, uuid, session);
 			}
 			catch (Exception ex)
