@@ -1,39 +1,42 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Ionic.Zip;
 using Newtonsoft.Json.Linq;
+using System;
 using System.Diagnostics;
-using Ionic.Zip;
+using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
-using System.Windows;
+using System.Text;
+using System.Windows.Forms;
 
 namespace SharpMCL
 {
-	internal static class Program
+    static class Program
 	{
 		static string assetIndex = "";
 		static string clientjar;
-		static void Main(string[] args)
+
+        [STAThread]
+        static void Main(string[] args)
 		{
 			Marshal.PrelinkAll(typeof(Program));
 			Process currentProcess = Process.GetCurrentProcess();
 			currentProcess.PriorityClass = ProcessPriorityClass.High;
 			Console.BackgroundColor = ConsoleColor.Black;
 			Console.ForegroundColor = ConsoleColor.White;
-			try
-			{
-				const string ClientPath = @"\Instances\DPT\";
-				string clientdir = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + ClientPath;
-				string client = "DPT";
-				string user = "USSRNAME";
-				string uuid = Guid.NewGuid().ToString();
-				string session = "0";
-				start(clientdir, client, user, uuid, session);
-			}
+            const string InstanceName = "";
+            const string ClientPath = @"\Instances\" + InstanceName + @"\";
+            string clientdir = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + ClientPath;
+            string client = "DPT";
+            string user = "USSRNAME";
+            string uuid = Guid.NewGuid().ToString();
+            string session = "0";
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            try
+            {
+                Application.Run(new LauncherForm());
+                //start(clientdir, client, user, uuid, session);
+            }
 			catch (Exception ex)
 			{
 				try
