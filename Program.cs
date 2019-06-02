@@ -22,6 +22,8 @@ namespace SharpMCL
 			Marshal.PrelinkAll(typeof(Program));
 			Process currentProcess = Process.GetCurrentProcess();
 			currentProcess.PriorityClass = ProcessPriorityClass.High;
+			Console.BackgroundColor = ConsoleColor.Black;
+			Console.ForegroundColor = ConsoleColor.White;
 			try
 			{
 				const string ClientPath = @"\Instances\DPT\";
