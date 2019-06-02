@@ -78,11 +78,14 @@ namespace SharpMCL
 			Info.UseShellExecute = false;
 			Info.RedirectStandardOutput = true;
 			Info.RedirectStandardError = true;
+			Info.StandardOutputEncoding = Encoding.GetEncoding("CP866");
 			Process process = new Process();
+			StreamWriter streamWriter = File.CreateText(@"SharpMCL.log");
 			process.StartInfo = Info;
 			Action<object, DataReceivedEventArgs> actionWrite = (sender, e) =>
 			{
 				Console.WriteLine(e.Data);
+				streamWriter.WriteLine(e.Data);
 			};
 			process.ErrorDataReceived += (sender, e) => actionWrite(sender, e);
 			process.OutputDataReceived += (sender, e) => actionWrite(sender, e);
