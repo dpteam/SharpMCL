@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace SharpMCL
 {
-    public partial class LauncherForm : Form
+	public partial class LauncherForm : Form
 	{
 		public LauncherForm()
 		{

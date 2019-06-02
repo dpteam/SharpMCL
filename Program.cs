@@ -18,8 +18,8 @@ namespace SharpMCL
 		[STAThread]
 		static void Main(string[] args)
 		{
-            Marshal.PrelinkAll(typeof(Program));
-            Process currentProcess = Process.GetCurrentProcess();
+			Marshal.PrelinkAll(typeof(Program));
+			Process currentProcess = Process.GetCurrentProcess();
 			currentProcess.PriorityClass = ProcessPriorityClass.High;
 			Console.BackgroundColor = ConsoleColor.Black;
 			Console.ForegroundColor = ConsoleColor.White;
