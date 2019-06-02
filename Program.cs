@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace SharpMCL
@@ -17,8 +18,8 @@ namespace SharpMCL
 		[STAThread]
 		static void Main(string[] args)
 		{
-			Marshal.PrelinkAll(typeof(Program));
-			Process currentProcess = Process.GetCurrentProcess();
+            Marshal.PrelinkAll(typeof(Program));
+            Process currentProcess = Process.GetCurrentProcess();
 			currentProcess.PriorityClass = ProcessPriorityClass.High;
 			Console.BackgroundColor = ConsoleColor.Black;
 			Console.ForegroundColor = ConsoleColor.White;
@@ -28,11 +29,11 @@ namespace SharpMCL
 			{
 				Application.Run(new LauncherForm());
 			}
-			catch (Exception ex)
+			catch (Exception value)
 			{
 				try
 				{
-					MessageBox.Show(ex.ToString(), "SharpMCL: Error");
+					MessageBox.Show(value.ToString(), "SharpMCL: Error");
 				}
 				catch
 				{
