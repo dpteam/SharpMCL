@@ -23,19 +23,11 @@ namespace SharpMCL
 			currentProcess.PriorityClass = ProcessPriorityClass.High;
 			Console.BackgroundColor = ConsoleColor.Black;
 			Console.ForegroundColor = ConsoleColor.White;
-            const string InstanceName = "";
-            const string ClientPath = @"\Instances\" + InstanceName + @"\";
-            string clientdir = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + ClientPath;
-            string client = "DPT";
-            string user = "USSRNAME";
-            string uuid = Guid.NewGuid().ToString();
-            string session = "0";
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             try
             {
                 Application.Run(new LauncherForm());
-                //start(clientdir, client, user, uuid, session);
             }
 			catch (Exception ex)
 			{
@@ -49,7 +41,7 @@ namespace SharpMCL
 			}
 		}
 
-		static void start(string clientdir, string client, string user, string uuid, string session)
+        public static void start(string clientdir, string client, string user, string uuid, string session)
 		{
 			string nfolder = clientdir + @"versions\" + client + @"\natives";
 			Directory.CreateDirectory(nfolder);
