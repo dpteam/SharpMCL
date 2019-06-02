@@ -9,25 +9,25 @@ using System.Windows.Forms;
 
 namespace SharpMCL
 {
-    static class Program
+	static class Program
 	{
 		static string assetIndex = "";
 		static string clientjar;
 
-        [STAThread]
-        static void Main(string[] args)
+		[STAThread]
+		static void Main(string[] args)
 		{
 			Marshal.PrelinkAll(typeof(Program));
 			Process currentProcess = Process.GetCurrentProcess();
 			currentProcess.PriorityClass = ProcessPriorityClass.High;
 			Console.BackgroundColor = ConsoleColor.Black;
 			Console.ForegroundColor = ConsoleColor.White;
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            try
-            {
-                Application.Run(new LauncherForm());
-            }
+			Application.EnableVisualStyles();
+			Application.SetCompatibleTextRenderingDefault(false);
+			try
+			{
+				Application.Run(new LauncherForm());
+			}
 			catch (Exception ex)
 			{
 				try
@@ -40,7 +40,7 @@ namespace SharpMCL
 			}
 		}
 
-        public static void start(string clientdir, string client, string user, string uuid, string session)
+		public static void start(string clientdir, string client, string user, string uuid, string session)
 		{
 			string nfolder = clientdir + @"versions\" + client + @"\natives";
 			Directory.CreateDirectory(nfolder);
