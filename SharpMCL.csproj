@@ -59,6 +59,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="KonamiForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KonamiForm.Designer.cs">
+      <DependentUpon>KonamiForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="KonamiSequence.cs" />
     <Compile Include="LauncherForm.cs">
       <SubType>Form</SubType>
@@ -77,6 +83,9 @@
     <Content Include="SE.ico" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="KonamiForm.resx">
+      <DependentUpon>KonamiForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LauncherForm.resx">
       <DependentUpon>LauncherForm.cs</DependentUpon>
     </EmbeddedResource>
