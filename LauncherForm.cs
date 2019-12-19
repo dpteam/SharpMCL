@@ -12,7 +12,7 @@ namespace SharpMCL
 			InitializeComponent();
 		}
 
-		private void Form1_Load(object sender, EventArgs e)
+		private void LauncherForm_Load(object sender, EventArgs e)
         {
             DirectoryInfo IntancesDir = new DirectoryInfo(System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + @".\Instances");
             if (!System.IO.Directory.Exists(IntancesDir.ToString()))
@@ -39,17 +39,15 @@ namespace SharpMCL
 
         }
 
-		private KonamiSequence sequence = new KonamiSequence();
+        private readonly KonamiSequence _konamiSequence = new KonamiSequence();
 
-		private void Form1_KeyUp(object sender, KeyEventArgs e)
-		{
-			if (!sequence.IsCompletedBy(e.KeyCode))
-			{
-				MessageBox.Show("KONAMI!!!");
-			}
-		}
+        private void LauncherForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (_konamiSequence.IsCompletedBy(e.KeyCode))
+                MessageBox.Show("Konami!");
+        }
 
-		private void Button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
 		{
 			String InstanceName = "";
 			String UserName = "";

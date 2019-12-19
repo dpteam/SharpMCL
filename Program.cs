@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace SharpMCL
 {
 	static class Program
-	{
+    {
 		static string assetIndex = "";
 		static string clientjar;
 
@@ -21,8 +21,9 @@ namespace SharpMCL
 
         [STAThread]
 		static void Main(string[] args)
-		{
-			Marshal.PrelinkAll(typeof(Program));
+        {
+            //Logger logger = new Logger("",0);
+            Marshal.PrelinkAll(typeof(Program));
 			Process currentProcess = Process.GetCurrentProcess();
 			currentProcess.PriorityClass = ProcessPriorityClass.High;
 			Console.BackgroundColor = ConsoleColor.Black;
@@ -39,8 +40,8 @@ namespace SharpMCL
 			catch (Exception value)
 			{
 				try
-				{
-					MessageBox.Show(value.ToString(), "SharpMCL: Error");
+                {
+                    MessageBox.Show(value.ToString(), "SharpMCL: Error");
 				}
 				catch
 				{
