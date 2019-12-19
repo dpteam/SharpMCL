@@ -19,12 +19,14 @@ namespace SharpMCL
         static public Form CreatePackForm1;
         static public Form KonamiForm1;
 
-        static public Logger logger;
-
         [STAThread]
 		static void Main(string[] args)
         {
             Marshal.PrelinkAll(typeof(Program));
+            Trace.AutoFlush = true;
+            Trace.Listeners.Clear();
+            Trace.Listeners.Add(new ConsoleTraceListener());
+            Trace.Listeners.Add(new TextWriterTraceListener(System.IO.Path.GetFileNameWithoutExtension(typeof(Program).Assembly.GetName().Name) + ".log"));
 			Process currentProcess = Process.GetCurrentProcess();
 			currentProcess.PriorityClass = ProcessPriorityClass.High;
 			Console.BackgroundColor = ConsoleColor.Black;
