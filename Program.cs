@@ -19,10 +19,11 @@ namespace SharpMCL
         static public Form CreatePackForm1;
         static public Form KonamiForm1;
 
+        static public Logger logger;
+
         [STAThread]
 		static void Main(string[] args)
         {
-            //Logger logger = new Logger("",0);
             Marshal.PrelinkAll(typeof(Program));
 			Process currentProcess = Process.GetCurrentProcess();
 			currentProcess.PriorityClass = ProcessPriorityClass.High;
