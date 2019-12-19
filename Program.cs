@@ -15,7 +15,11 @@ namespace SharpMCL
 		static string assetIndex = "";
 		static string clientjar;
 
-		[STAThread]
+        static public Form LauncherForm1;
+        static public Form CreatePackForm1;
+        static public Form KonamiForm1;
+
+        [STAThread]
 		static void Main(string[] args)
 		{
 			Marshal.PrelinkAll(typeof(Program));
@@ -26,8 +30,11 @@ namespace SharpMCL
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 			try
-			{
-				Application.Run(new LauncherForm());
+            {
+                LauncherForm1 = new LauncherForm();
+                CreatePackForm1 = new CreatePackForm();
+                KonamiForm1 = new KonamiForm();
+                Application.Run(new LauncherForm());
 			}
 			catch (Exception value)
 			{

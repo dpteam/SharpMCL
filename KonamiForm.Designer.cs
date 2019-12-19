@@ -22,6 +22,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KonamiForm));
             this.FieldPictureBox = new System.Windows.Forms.PictureBox();
             this.TickTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.FieldPictureBox)).BeginInit();
@@ -30,7 +31,7 @@
             // FieldPictureBox
             // 
             this.FieldPictureBox.Location = new System.Drawing.Point(0, 0);
-            this.FieldPictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FieldPictureBox.Margin = new System.Windows.Forms.Padding(2);
             this.FieldPictureBox.Name = "FieldPictureBox";
             this.FieldPictureBox.Size = new System.Drawing.Size(302, 387);
             this.FieldPictureBox.TabIndex = 0;
@@ -49,9 +50,11 @@
             this.ClientSize = new System.Drawing.Size(282, 344);
             this.Controls.Add(this.FieldPictureBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "KonamiForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "To win the game, you must kill me, DartPower!";
             this.Load += new System.EventHandler(this.KonamiForm_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KonamiForm_KeyDown);
