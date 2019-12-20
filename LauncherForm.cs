@@ -44,7 +44,10 @@ namespace SharpMCL
         private void LauncherForm_KeyDown(object sender, KeyEventArgs e)
         {
             if (_konamiSequence.IsCompletedBy(e.KeyCode))
-                MessageBox.Show("Konami!");
+            {
+                const string msg_KonamiActivated = "Konami!";
+                MessageBox.Show(text: msg_KonamiActivated);
+            }
         }
 
         private void Button1_Click(object sender, EventArgs e)

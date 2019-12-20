@@ -5,14 +5,15 @@ using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace SharpMCL
 {
-	static class Program
+    static class Program
     {
-		static string assetIndex = "";
+        private const string msg_AnyKey = "Press any key to close console...";
+        private const string msg_Error = "SharpMCL: Error";
+        static string assetIndex = "";
 		static string clientjar;
 
         static public Form LauncherForm1;
@@ -44,7 +45,7 @@ namespace SharpMCL
 			{
 				try
                 {
-                    MessageBox.Show(value.ToString(), "SharpMCL: Error");
+                    MessageBox.Show(value.ToString(), caption: msg_Error);
 				}
 				catch
 				{
@@ -99,7 +100,7 @@ namespace SharpMCL
 			process.BeginOutputReadLine();
 			process.BeginErrorReadLine();
 			process.WaitForExit();
-			Console.WriteLine("Press any key to close console...");
+            Console.WriteLine(value: msg_AnyKey);
 			Console.ReadKey();
 		}
 

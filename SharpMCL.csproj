@@ -90,6 +90,11 @@
     <Compile Include="Logger.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="en-US.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>en-US.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -107,6 +112,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LauncherForm.resx">
       <DependentUpon>LauncherForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="en-US.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>en-US.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
